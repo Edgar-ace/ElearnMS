@@ -522,3 +522,33 @@ body.app-page {
         padding: 18px;
     }
 }
+
+/* ── Mobile sidebar toggle button ── */
+.lms-menu-btn {
+    display: none;              /* hidden on desktop */
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 2px solid var(--lms-accent);
+    border-radius: 8px;
+    background: var(--lms-accent) !important;
+    color: #fff !important;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.lms-menu-btn:hover,
+.lms-menu-btn:focus-visible {
+    background: var(--lms-accent-dark) !important;
+    border-color: var(--lms-accent-dark);
+    outline: none;
+}
+
+/* Show the button only on mobile (xs breakpoint = <576px in Bootstrap) */
+@media (max-width: 575.98px) {
+    .lms-menu-btn {
+        display: flex;
+    }
+}
