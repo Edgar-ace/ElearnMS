@@ -1,0 +1,49 @@
+{% extends "lms/base.html" %}
+{% load static %}
+{% block title %}Dashboard | eStudy{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'lms/css/home.css' %}?v=9">{% endblock %}
+{% block content %}
+<main class="role-dashboard dashboard-{{ dashboard_role }}">
+    {% if dashboard_role == 'student' %}
+        <section class="dashboard-welcome student-welcome">
+            <div><p class="dashboard-kicker">YOUR LEARNING SPACE</p><h1>Welcome back, {{ display_name }}.</h1><p>Pick up where you left off and keep building your skills.</p><a class="dashboard-primary" href="{% url 'course' %}">Explore courses <span aria-hidden="true">→</span></a></div>
+            <img src="{% static 'lms/images/landing/future-learning.jpg' %}" alt="Illustration of technology and human creativity">
+        </section>
+        <section class="dashboard-stats" aria-label="Your learning summary">
+            {% for card in summary_cards %}<a class="dashboard-stat" href="{% url card.url %}"><span class="stat-icon {{ card.tone }}"><img src="{% static 'lms/icons/' %}{{ card.icon }}.svg" alt=""></span><span><small>{{ card.label }}</small><strong>{{ card.count }}</strong><em>{{ card.description }}</em></span></a>{% endfor %}
+        </section>
+        <section class="dashboard-section">
+            <div class="dashboard-section-heading"><div><p class="dashboard-kicker">YOUR STUDY PLAN</p><h2>My courses</h2></div><a href="{% url 'enrollment' %}">View enrollments <span aria-hidden="true">→</span></a></div>
+            <div class="learner-course-grid">
+                {% for enrollment in student_enrollments %}
+                <article class="learner-course-card">
+                    <div class="learner-course-image"><img src="{% static 'lms/images/landing/' %}{{ enrollment.course_cover }}" alt=""><span class="course-status status-{{ enrollment.status|lower }}">{{ enrollment.get_status_display }}</span></div>
+                    <div class="learner-course-body"><p>{{ enrollment.Course_id.Category }}</p><h3>{{ enrollment.Course_id.course_name }}</h3><div class="progress-label"><span>Course progress</span><b>{{ enrollment.progress|default:0 }}%</b></div><div class="progress-track"><span style="width: {{ enrollment.progress|default:0 }}%"></span></div><div class="learner-course-footer"><small>{{ enrollment.lesson_count }} lessons</small>{% if enrollment.status == 'Pending' %}<a href="{% url 'pay_enrollment' enrollment.pk %}">Complete payment</a>{% elif enrollment.status == 'Active' %}<a href="{% url 'lesson' %}">Continue learning</a>{% else %}<a href="{% url 'lesson' %}">Review course</a>{% endif %}</div></div>
+                </article>
+                {% empty %}<div class="dashboard-empty"><span class="empty-mark">＋</span><h3>Your learning starts here</h3><p>Browse the course catalogue and enroll in a course that interests you.</p><a class="dashboard-primary" href="{% url 'course' %}">Browse courses <span aria-hidden="true">→</span></a></div>{% endfor %}
+            </div>
+        </section>
+        <section class="dashboard-bottom-grid">
+            <div class="dashboard-panel"><div class="dashboard-section-heading"><div><p class="dashboard-kicker">RECENT ACTIVITY</p><h2>Payments</h2></div><a href="{% url 'payment' %}">All payments →</a></div>
+                {% for payment in recent_payments %}<div class="activity-row"><span class="activity-symbol">UGX</span><div><b>{{ payment.Enrollment_id.Course_id.course_name }}</b><small>{{ payment.Payment_date|date:"M j, Y"|default:"Date pending" }}</small></div><strong>UGX {{ payment.Amount|floatformat:0 }}<small>{{ payment.get_status_display }}</small></strong></div>{% empty %}<p class="muted-copy">Your submitted payments will appear here.</p>{% endfor %}
+            </div>
+            <div class="dashboard-panel progress-panel"><p class="dashboard-kicker">KEEP GOING</p><h2>Every lesson moves you forward.</h2><p>Open a lesson resource to record your progress and keep your course tracker up to date.</p><a href="{% url 'lesson_tracker' %}">View my progress →</a></div>
+        </section>
+
+    {% elif dashboard_role == 'instructor' %}
+        <section class="dashboard-welcome instructor-welcome"><div><p class="dashboard-kicker">INSTRUCTOR WORKSPACE</p><h1>Welcome, {{ display_name }}.</h1><p>Manage your course resources and follow your students’ learning progress.</p><a class="dashboard-primary" href="{% url 'lesson_resources' %}">Manage lesson resources <span aria-hidden="true">→</span></a></div><div class="welcome-emblem"><img src="{% static 'lms/icons/person-vcard-fill.svg' %}" alt=""></div></section>
+        <section class="dashboard-stats" aria-label="Teaching summary">{% for card in summary_cards %}<a class="dashboard-stat" href="{% url card.url %}"><span class="stat-icon {{ card.tone }}"><img src="{% static 'lms/icons/' %}{{ card.icon }}.svg" alt=""></span><span><small>{{ card.label }}</small><strong>{{ card.count }}</strong><em>{{ card.description }}</em></span></a>{% endfor %}</section>
+        <section class="dashboard-section"><div class="dashboard-section-heading"><div><p class="dashboard-kicker">YOUR TEACHING</p><h2>Courses you teach</h2></div><a href="{% url 'enrollment' %}">View student enrollments →</a></div>
+            <div class="instructor-course-list">{% for course in instructor_courses %}<article class="instructor-course-card"><img src="{% static 'lms/images/landing/' %}{{ course.course_cover }}" alt=""><div class="instructor-course-info"><p>{{ course.Category }}</p><h3>{{ course.course_name }}</h3><span>{{ course.student_count }} students · {{ course.lesson_count }} lessons</span></div><div class="instructor-course-links"><a href="{% url 'enrollment' %}">Students</a><a href="{% url 'lesson_tracker' %}">Progress</a><a href="{% url 'lesson_resources' %}">Resources</a></div></article>{% empty %}<div class="dashboard-empty"><h3>No courses assigned yet</h3><p>Courses assigned to your instructor record will appear here.</p></div>{% endfor %}</div>
+        </section>
+
+    {% elif dashboard_role == 'admin' %}
+        <section class="dashboard-welcome admin-welcome"><div><p class="dashboard-kicker">SYSTEM OVERVIEW</p><h1>Good day, {{ display_name }}.</h1><p>Keep courses, student accounts and payment approvals moving smoothly.</p></div><a class="dashboard-primary" href="{% url 'instructor' %}">Review instructor accounts <span aria-hidden="true">→</span></a></section>
+        <section class="dashboard-section"><div class="dashboard-section-heading"><div><p class="dashboard-kicker">AT A GLANCE</p><h2>eStudy overview</h2></div></div><div class="dashboard-stats admin-stats">{% for card in summary_cards %}<a class="dashboard-stat" href="{% url card.url %}"><span class="stat-icon {{ card.tone }}"><img src="{% static 'lms/icons/' %}{{ card.icon }}.svg" alt=""></span><span><small>{{ card.label }}</small><strong>{{ card.count }}</strong><em>{{ card.description }}</em></span></a>{% endfor %}</div></section>
+        <section class="dashboard-section admin-actions"><div class="dashboard-section-heading"><div><p class="dashboard-kicker">QUICK ACCESS</p><h2>Manage the learning system</h2></div></div><div class="admin-shortcuts"><a href="{% url 'student' %}"><span>01</span><b>Student accounts</b><em>View student profiles and usernames</em></a><a href="{% url 'course' %}"><span>02</span><b>Courses and lessons</b><em>Manage courses and lesson content</em></a><a href="{% url 'payment' %}"><span>03</span><b>Payment approvals</b><em>Review submitted student payments</em></a></div></section>
+    {% else %}
+        <section class="dashboard-welcome"><div><p class="dashboard-kicker">eSTUDY</p><h1>Welcome, {{ display_name }}.</h1><p>Your account is ready. Contact an administrator if you need a student or instructor profile.</p><a class="dashboard-primary" href="{% url 'student' %}">View account details →</a></div></section>
+    {% endif %}
+</main>
+{% endblock %}

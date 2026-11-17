@@ -1,0 +1,36 @@
+{% extends "lms/base.html" %}
+{% block title %}Instructor | eStudy{% endblock %}
+{% block page_title %}Instructor registration{% endblock %}
+{% block content %}
+<div id="main-body">
+        <div class="page-toolbar"><p>Create an instructor record.</p><a class="page-action" href="{% url 'add_instructor' %}"><i class="ni ni-fat-add me-1" aria-hidden="true"></i>Add Instructor</a></div>
+
+        <h2>Instructor Records</h2>
+        <div class="records-table-scroll"><table class="table table-striped table-hover align-middle">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Qualification</th>
+                    <th>Salary</th>
+                    <th>Account Status</th>
+                <th>Actions</th></tr>
+            </thead>
+            <tbody>
+    {% for instructor in instructors %}
+    <tr>
+        <td>{{ instructor.id }}</td><td>{{ instructor.first_name }}</td><td>{{ instructor.last_name }}</td>
+        <td>{{ instructor.get_gender_display }}</td><td>{{ instructor.email }}</td><td>{{ instructor.contact }}</td>
+        <td>{{ instructor.qualification }}</td><td>UGX {{ instructor.salary|floatformat:0 }}</td>
+    <td>{{ instructor.account_status }}{% if instructor.account_user_id and instructor.account_status == 'Awaiting approval' %}<form class="approval-form" method="post" action="{% url 'approve_instructor_account' instructor.pk %}">{% csrf_token %}<button class="row-action" type="submit">Approve account</button></form>{% endif %}</td>
+    <td class="table-actions"><a class="row-action" href="{% url 'edit_instructor' instructor.pk %}"><i class="ni ni-ruler-pencil me-1" aria-hidden="true"></i>Edit</a><form class="table-action-form" method="post" action="{% url 'delete_instructor' instructor.pk %}" onsubmit="return confirm('Delete this record?');">{% csrf_token %}<button class="row-action row-action-delete" type="submit"><i class="ni ni-fat-delete me-1" aria-hidden="true"></i>Delete</button></form></td></tr>
+    {% empty %}<tr><td colspan="10">No instructors have been added yet.</td></tr>{% endfor %}
+</tbody>
+        </table></div>
+    </div>
+{% endblock %}
+

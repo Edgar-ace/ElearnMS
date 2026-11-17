@@ -1,0 +1,22 @@
+databases:
+  - name: elearnms-db
+    databaseName: elearnms
+    user: elearnms
+    plan: free
+
+services:
+  - type: web
+    name: elearnms
+    runtime: python
+    plan: free
+    buildCommand: bash build.sh
+    startCommand: gunicorn elearning_project.wsgi:application --bind 0.0.0.0:$PORT
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: elearnms-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"

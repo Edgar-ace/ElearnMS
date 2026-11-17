@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" style="color-scheme: light;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | eStudy</title>
+    <link rel="stylesheet" href="{% static 'bootstrap-6.0.0-alpha.1-dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/nucleo-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'lms/css/login.css' %}?v=7">
+</head>
+<body class="login-page">
+    <main class="login-card">
+        <a class="login-brand" href="{% url 'login' %}" aria-label="eStudy login">
+            <img src="{% static 'lms/images/download (14).jpg' %}" alt="eStudy logo">
+            <span>eStudy</span>
+        </a>
+        <h1>Welcome back</h1>
+        <p class="login-intro">Sign in to continue to your learning workspace.</p>
+
+        {% for message in messages %}<div class="auth-message" role="alert">{{ message }}</div>{% endfor %}
+        {% if form.non_field_errors %}<div class="auth-error" role="alert">{{ form.non_field_errors }}</div>{% endif %}
+        <form class="login-form" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}">
+            <div class="field-group">
+                <label for="{{ form.role.id_for_label }}">{{ form.role.label }}</label>
+                {{ form.role }}
+                {% for error in form.role.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
+            </div>
+            <div class="field-group">
+                <label for="{{ form.username.id_for_label }}">Username</label>
+                {{ form.username }}
+                {% for error in form.username.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
+            </div>
+            <div class="field-group">
+                <label for="{{ form.password.id_for_label }}">Password</label>
+                {{ form.password }}
+                {% for error in form.password.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
+            </div>
+            <button type="submit"><i class="ni ni-user-run me-1" aria-hidden="true"></i>Login</button>
+        </form>
+
+        <p class="account-prompt">New to eStudy? <a href="{% url 'signup' %}">Create an account</a></p>
+    </main>
+</body>
+</html>
+
+

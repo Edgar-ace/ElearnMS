@@ -1,0 +1,136 @@
+:root {
+    color-scheme: light;
+}
+
+/* ===== lesson.css : styles for lesson.html ===== */
+
+/* ----- Whole page ----- */
+body {
+    color: #212529;
+    background-color: lightblue;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 16px;
+}
+
+h1 {
+    color: darkblue;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h2 {
+    color: blueviolet;
+}
+
+p {
+    font-size: 17px;
+}
+
+/* ----- Outer box that holds every page except login ----- */
+#main-content {
+    background-color: white;
+    border: blueviolet 2px solid;
+    border-radius: 10px;
+    margin: 30px auto;      /* auto left/right centers the box */
+    padding: 15px;
+    width: 85%;
+}
+
+/* ----- Header: title + menu ----- */
+#header-div {
+    border-bottom: blueviolet 2px solid;
+    padding-bottom: 10px;
+}
+
+/* ----- Menu (the list of links) ----- */
+#menu-items {
+    list-style: none;       /* removes the bullets */
+    margin: 0;
+    padding: 0;
+}
+
+#menu-items li {
+    display: inline;        /* puts the items side by side */
+    padding: 5px 10px;
+    border-right: blueviolet 2px solid;
+}
+
+#menu-items li:last-child {
+    border-right: none;     /* no line after the last item */
+}
+
+#menu-items a {
+    color: darkblue;
+    text-decoration: none;  /* removes the underline */
+    font-weight: bold;
+}
+
+#menu-items a:hover {
+    color: red;             /* changes colour when the mouse is over it */
+}
+
+/* ----- Body of the page ----- */
+#main-body {
+    color: #212529;
+    padding: 10px;
+}
+
+/* ----- Forms ----- */
+form {
+    background-color: lightgray;
+    border-radius: 8px;
+    padding: 15px;
+    width: 450px;
+}
+
+label {
+    display: inline-block;  /* lets us give the label a width */
+    width: 140px;
+    font-weight: bold;
+}
+
+input, select {
+    height: 30px;
+    width: 250px;
+    border: blueviolet 2px solid;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+button {
+    height: 35px;
+    width: 200px;
+    background-color: blueviolet;
+    color: whitesmoke;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkblue;
+}
+
+/* ----- Tables ----- */
+table {
+    width: 100%;
+    border-collapse: collapse;   /* joins the borders into single lines */
+}
+
+table, th, td {
+    border: blueviolet 2px solid;
+    padding: 6px;
+}
+
+th {
+    background-color: blueviolet;
+    color: whitesmoke;
+}
+
+td {
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background-color: lightgray; /* every second row is grey */
+}

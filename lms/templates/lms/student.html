@@ -1,0 +1,29 @@
+{% extends "lms/base.html" %}
+{% block title %}My Details | eStudy{% endblock %}
+{% block page_title %}{% if request.user.is_staff %}Student records{% else %}My details{% endif %}{% endblock %}
+{% block content %}
+<div id="main-body">
+    {% if is_instructor %}
+    <div class="page-toolbar"><p>Your instructor profile and login username.</p></div>
+    <h2>My Instructor Record</h2>
+    <div class="records-table-scroll"><table class="table table-striped table-hover align-middle">
+        <thead><tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Gender</th><th>Email</th><th>Contact</th><th>Qualification</th><th>Login Username</th></tr></thead>
+        <tbody>{% for instructor in instructors %}<tr><td>{{ instructor.id }}</td><td>{{ instructor.first_name }}</td><td>{{ instructor.last_name }}</td><td>{{ instructor.get_gender_display }}</td><td>{{ instructor.email }}</td><td>{{ instructor.contact }}</td><td>{{ instructor.qualification }}</td><td>{{ instructor.account_username }}</td></tr>{% empty %}<tr><td colspan="8">No instructor profile is linked to this account.</td></tr>{% endfor %}</tbody>
+    </table></div>
+    {% else %}
+    <div class="page-toolbar"><p>{% if request.user.is_staff %}Student profiles and their login usernames.{% else %}Your student profile and login username.{% endif %}</p>{% if request.user.is_staff %}<a class="page-action" href="{% url 'add_student' %}">Add Student</a>{% endif %}</div>
+    {% if request.user.is_staff %}<p>Passwords are securely stored and cannot be viewed. Students can reset forgotten passwords through an administrator.</p>{% endif %}
+    <h2>{% if request.user.is_staff %}All Student Records{% else %}My Student Record{% endif %}</h2>
+    <div class="records-table-scroll"><table class="table table-striped table-hover align-middle">
+        <thead><tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Gender</th><th>Birth Year</th><th>Email</th><th>Contact</th><th>Login Username</th>{% if request.user.is_staff %}<th>Actions</th>{% endif %}</tr></thead>
+        <tbody>
+        {% for student in students %}
+            <tr><td>{{ student.id }}</td><td>{{ student.first_name }}</td><td>{{ student.last_name }}</td><td>{{ student.get_gender_display }}</td><td>{{ student.birth_year|date:"Y" }}</td><td>{{ student.email }}</td><td>{{ student.contact }}</td><td>{{ student.account_username }}</td>
+            {% if request.user.is_staff %}<td class="table-actions"><a class="row-action" href="{% url 'edit_student' student.pk %}">Edit</a><form class="table-action-form" method="post" action="{% url 'delete_student' student.pk %}" onsubmit="return confirm('Delete this record?');">{% csrf_token %}<button class="row-action row-action-delete" type="submit">Delete</button></form></td>{% endif %}</tr>
+        {% empty %}<tr><td colspan="9">No student profile is linked to this account yet.</td></tr>{% endfor %}
+        </tbody>
+    </table></div>
+    {% endif %}
+</div>
+{% endblock %}
+

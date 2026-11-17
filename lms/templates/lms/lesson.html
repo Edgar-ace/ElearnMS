@@ -1,0 +1,47 @@
+{% extends "lms/base.html" %}
+{% block title %}Lesson | eStudy{% endblock %}
+{% block page_title %}Lessons{% endblock %}
+{% block content %}
+<div id="main-body">
+    {% if is_student %}
+        <p>Lessons are available after your payment is verified and your enrollment is active.</p>
+        <h2>Your Course Lessons</h2>
+        <div class="records-table-scroll"><table class="table table-striped table-hover align-middle">
+            <thead><tr><th>Course</th><th>Lesson</th><th>Resources</th><th>Your Progress</th></tr></thead>
+            <tbody>
+            {% for lesson, enrollment, tracker, resources in lesson_rows %}
+                <tr><td>{{ enrollment.Course_id.course_name }}</td><td>{{ lesson.Lesson_title }}</td><td>
+                {% for resource in resources %}<a class="row-action" href="{% url 'open_lesson_resource' resource.pk %}" target="_blank" rel="noopener">{{ resource.title }}</a>{% empty %}<span>No resources uploaded yet.</span>{% endfor %}
+                </td><td>{{ enrollment.progress }}%{% if tracker and tracker.status == 'Completed' %} · Completed{% endif %}</td></tr>
+            {% empty %}<tr><td colspan="4">No lessons are available. Pending enrollments unlock after payment verification.</td></tr>{% endfor %}
+            </tbody>
+        </table></div>
+    {% elif is_instructor %}
+        <div class="page-toolbar"><p>Manage learning resources for lessons in your courses.</p><a class="page-action" href="{% url 'lesson_resources' %}">Manage Lesson Resources</a></div>
+        <h2>Lessons in Your Courses</h2>
+        <div class="records-table-scroll"><table class="table table-striped table-hover align-middle"><thead><tr><th>Course</th><th>Lesson</th><th>Resources</th></tr></thead><tbody>
+        {% for lesson in lessons %}<tr><td>{{ lesson.Course_id.course_name }}</td><td>{{ lesson.Lesson_title }}</td><td>{% for resource in lesson.resources.all %}<a class="row-action" href="{{ resource.url }}" target="_blank" rel="noopener">{{ resource.title }}</a>{% empty %}No resources yet{% endfor %}</td></tr>
+        {% empty %}<tr><td colspan="3">No lessons are assigned to your instructor account yet.</td></tr>{% endfor %}
+        </tbody></table></div>
+    {% else %}
+        <div class="page-toolbar"><p>Manage lessons and their resources.</p><a class="page-action" href="{% url 'add_lesson' %}">+ Lesson</a><a class="page-action" href="{% url 'lesson_resources' %}">Manage Resources</a></div>
+
+        <h2>Lesson Records</h2>
+        <div class="records-table-scroll"><table class="table table-striped table-hover align-middle">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Course ID</th>
+                    <th>Title</th>
+                <th>Actions</th></tr>
+            </thead>
+            <tbody>
+    {% for lesson in lessons %}
+    <tr><td>{{ lesson.id }}</td><td>{{ lesson.Course_id }}</td><td>{{ lesson.Lesson_title }}</td><td class="table-actions"><a class="row-action" href="{% url 'edit_lesson' lesson.pk %}"><i class="ni ni-ruler-pencil me-1" aria-hidden="true"></i>Edit</a><form class="table-action-form" method="post" action="{% url 'delete_lesson' lesson.pk %}" onsubmit="return confirm('Delete this record?');">{% csrf_token %}<button class="row-action row-action-delete" type="submit"><i class="ni ni-fat-delete me-1" aria-hidden="true"></i>Delete</button></form></td></tr>
+    {% empty %}<tr><td colspan="4">No lessons have been added yet.</td></tr>{% endfor %}
+</tbody>
+        </table></div>
+    {% endif %}
+    </div>
+{% endblock %}
+

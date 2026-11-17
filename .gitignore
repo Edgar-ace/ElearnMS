@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Environment variables and local secrets
+.env
+.env.*
+!.env.example
+
+# Local databases and imported SQL data
+db.sqlite3
+db.sqlite3-journal
+e_learn.sql
+
+# Collected/static build output
+staticfiles/
+
+# Editor and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

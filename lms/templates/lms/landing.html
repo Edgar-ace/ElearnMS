@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>eStudy | Learn, teach, grow</title>
+    <link rel="stylesheet" href="{% static 'lms/css/landing.css' %}?v=1">
+</head>
+<body class="landing-page">
+    <header class="landing-header">
+        <a class="landing-brand" href="{% url 'home' %}"><img src="{% static 'lms/images/download (14).jpg' %}" alt=""><span>eStudy</span></a>
+        <nav class="landing-nav" aria-label="Main navigation">
+            <a href="#about">About</a>
+            <a href="#learning">Learning paths</a>
+            <a class="nav-login" href="{% url 'login' %}">Log in</a>
+            <a class="nav-register" href="{% url 'signup' %}">Create account</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="landing-hero">
+            <div class="hero-copy">
+                <p class="hero-kicker"><span></span> YOUR NEXT SKILL STARTS HERE</p>
+                <h1>Build skills for a <em>connected</em> world.</h1>
+                <p class="hero-description">eStudy brings courses, lessons and learning progress together in one clear place. Learn at your pace, keep track of every step, and grow your confidence with technology.</p>
+                <div class="hero-actions">
+                    <a class="button-primary" href="{% url 'signup' %}">Get started <span aria-hidden="true">→</span></a>
+                    <a class="button-secondary" href="{% url 'login' %}">I already have an account</a>
+                </div>
+                <div class="hero-note"><span class="note-dot"></span> A learning space for students and instructors</div>
+            </div>
+            <div class="hero-visual">
+                <img src="{% static 'lms/images/landing/future-learning.jpg' %}" alt="A human hand and a robotic hand reaching toward a spark of light">
+                <div class="visual-caption"><span>LEARN</span><b>Technology moves forward.<br>So can you.</b></div>
+                <div class="visual-index">01 <span>/</span> 03</div>
+            </div>
+            <div class="hero-watermark" aria-hidden="true">e</div>
+        </section>
+
+        <section class="about-section" id="about">
+            <div class="section-intro">
+                <p class="section-kicker">ABOUT eSTUDY</p>
+                <h2>Learning that stays<br><em>in step with you.</em></h2>
+            </div>
+            <div class="about-copy">
+                <p>eStudy is an e-learning management system for organizing courses and helping students follow their progress from enrollment to completion.</p>
+                <div class="about-points">
+                    <div><span>01</span><b>Find your course</b><small>Explore technology learning paths.</small></div>
+                    <div><span>02</span><b>Learn with purpose</b><small>Open lesson resources and keep moving.</small></div>
+                    <div><span>03</span><b>See your progress</b><small>Know what you have completed and what comes next.</small></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="learning-section" id="learning">
+            <div class="learning-heading"><div><p class="section-kicker">EXPLORE THE POSSIBILITIES</p><h2>Choose a direction.<br><em>Start learning.</em></h2></div><p>Build practical knowledge across the technologies shaping how we work and connect.</p></div>
+            <div class="path-grid">
+                <article class="path-card path-card-large"><img src="{% static 'lms/images/landing/web-development.jpg' %}" alt="Web development technologies"><div class="path-overlay"><span>01 / CREATE</span><h3>Web Development</h3><p>Learn the tools behind modern digital experiences.</p></div></article>
+                <article class="path-card"><img src="{% static 'lms/images/landing/cybersecurity.jpg' %}" alt="Cybersecurity interface"><div class="path-overlay"><span>02 / PROTECT</span><h3>Cybersecurity</h3><p>Understand how to protect systems and information.</p></div></article>
+                <article class="path-card"><img src="{% static 'lms/images/landing/networking-course.jpg' %}" alt="Networking equipment and a connected world"><div class="path-overlay"><span>03 / CONNECT</span><h3>Networking</h3><p>Explore the infrastructure that connects us.</p></div></article>
+            </div>
+        </section>
+
+        <section class="landing-cta">
+            <div><p class="section-kicker">MAKE YOUR NEXT MOVE</p><h2>Your learning journey<br>can start today.</h2></div>
+            <a class="button-light" href="{% url 'signup' %}">Create your account <span aria-hidden="true">↗</span></a>
+        </section>
+    </main>
+
+    <footer class="landing-footer"><a class="landing-brand" href="{% url 'home' %}"><img src="{% static 'lms/images/download (14).jpg' %}" alt=""><span>eStudy</span></a><p>Learn · Teach · Grow</p><span>© eStudy</span></footer>
+</body>
+</html>

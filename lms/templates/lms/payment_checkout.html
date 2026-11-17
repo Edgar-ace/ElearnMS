@@ -1,0 +1,15 @@
+{% extends "lms/base.html" %}
+{% block title %}Payment | eStudy{% endblock %}
+{% block page_title %}Make payment{% endblock %}
+{% block content %}
+<div id="main-body">
+    <h2>Payment for {{ enrollment.Course_id.course_name }}</h2>
+    <p>Amount due: UGX {{ enrollment.Course_id.Amount|floatformat:0 }}</p>
+    <p>Your enrollment remains Pending until an administrator verifies the payment.</p>
+    <form method="post" class="card p-4">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="page-action" type="submit">Submit payment</button>
+    </form>
+</div>
+{% endblock %}

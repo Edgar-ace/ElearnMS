@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" style="color-scheme: light;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | eStudy</title>
+    <link rel="stylesheet" href="{% static 'bootstrap-6.0.0-alpha.1-dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/nucleo-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'lms/css/login.css' %}?v=9">
+</head>
+<body class="login-page">
+    <main class="login-card signup-card">
+        <a class="login-brand" href="{% url 'login' %}" aria-label="eStudy login">
+            <img src="{% static 'lms/images/download (14).jpg' %}" alt="eStudy logo">
+            <span>eStudy</span>
+        </a>
+        <h1>Create an account</h1>
+        <p class="login-intro">Choose whether you are creating a student or instructor account.</p>
+
+        <form class="login-form" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="field-group" {% if field.name == 'birth_year' or field.name == 'gender' or field.name == 'contact' %}data-student-field{% endif %}>
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.help_text %}<small class="field-help">{{ field.help_text|safe }}</small>{% endif %}
+                    {% for error in field.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
+                </div>
+            {% endfor %}
+            {% if form.non_field_errors %}<div class="auth-error" role="alert">{{ form.non_field_errors }}</div>{% endif %}
+            <button type="submit"><i class="ni ni-single-02 me-1" aria-hidden="true"></i>Create account</button>
+        </form>
+
+        <p class="account-prompt">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+    </main>
+    <script>
+        const accountRole = document.getElementById("id_role");
+        const studentFields = document.querySelectorAll("[data-student-field]");
+        function showRoleFields() {
+            const isStudent = accountRole.value === "student";
+            studentFields.forEach((group) => {
+                group.hidden = !isStudent;
+                const input = group.querySelector("input, select");
+                if (input) input.required = isStudent;
+            });
+        }
+        accountRole.addEventListener("change", showRoleFields);
+        showRoleFields();
+    </script>
+</body>
+</html>
+
+
