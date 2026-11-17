@@ -17,6 +17,7 @@ env/
 db.sqlite3
 db.sqlite3-journal
 e_learn.sql
+deploy-data.json
 
 # Collected/static build output
 staticfiles/
