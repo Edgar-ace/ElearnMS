@@ -1,0 +1,700 @@
+[
+{
+  "model": "lms.student",
+  "pk": 1,
+  "fields": {
+    "first_name": "Shema",
+    "last_name": "Edgar",
+    "birth_year": "2002-02-23",
+    "gender": "M",
+    "email": "edgarshema27@gmail.com",
+    "contact": "0756888903"
+  }
+},
+{
+  "model": "lms.student",
+  "pk": 12,
+  "fields": {
+    "first_name": "Patricia",
+    "last_name": "Nakalega",
+    "birth_year": "2004-05-12",
+    "gender": "F",
+    "email": "elysepatricia@gmail.com",
+    "contact": "0785466890"
+  }
+},
+{
+  "model": "lms.student",
+  "pk": 14,
+  "fields": {
+    "first_name": "Bryan",
+    "last_name": "Mbeumo",
+    "birth_year": "2000-01-01",
+    "gender": "M",
+    "email": "bryanmbeumo@gmail.com",
+    "contact": "0772961978"
+  }
+},
+{
+  "model": "lms.student",
+  "pk": 15,
+  "fields": {
+    "first_name": "Zahara",
+    "last_name": "Wanyenya",
+    "birth_year": "2002-01-01",
+    "gender": "F",
+    "email": "zarawanyenya@gmail.com",
+    "contact": "0702332900"
+  }
+},
+{
+  "model": "lms.student",
+  "pk": 18,
+  "fields": {
+    "first_name": "Radja",
+    "last_name": "Mustapha",
+    "birth_year": "1997-11-23",
+    "gender": "M",
+    "email": "mustaphamuhammad@gmail.com",
+    "contact": "0793320451"
+  }
+},
+{
+  "model": "lms.student",
+  "pk": 19,
+  "fields": {
+    "first_name": "Muzamir",
+    "last_name": "Karisa",
+    "birth_year": "2002-01-28",
+    "gender": "M",
+    "email": "karisamir@gmail.com",
+    "contact": "0742845630"
+  }
+},
+{
+  "model": "lms.student",
+  "pk": 21,
+  "fields": {
+    "first_name": "Lule",
+    "last_name": "Huzaipha",
+    "birth_year": "2002-08-03",
+    "gender": "M",
+    "email": "lulehuzaipha@gmail.com",
+    "contact": "0791298704"
+  }
+},
+{
+  "model": "lms.student",
+  "pk": 22,
+  "fields": {
+    "first_name": "Themba",
+    "last_name": "Mokoena",
+    "birth_year": "2004-04-22",
+    "gender": "M",
+    "email": "mokoenazwane@gmail.com",
+    "contact": "0756778031"
+  }
+},
+{
+  "model": "lms.student",
+  "pk": 23,
+  "fields": {
+    "first_name": "Nasulu",
+    "last_name": "Famba",
+    "birth_year": "2003-11-03",
+    "gender": "M",
+    "email": "nasulu@gmail.com",
+    "contact": "0782449054"
+  }
+},
+{
+  "model": "lms.student",
+  "pk": 25,
+  "fields": {
+    "first_name": "Devine",
+    "last_name": "Kamaliza",
+    "birth_year": "2005-06-04",
+    "gender": "F",
+    "email": "devinekamaliza@gmail.com",
+    "contact": "0745767859"
+  }
+},
+{
+  "model": "lms.instructor",
+  "pk": 9,
+  "fields": {
+    "first_name": "Fahid",
+    "last_name": "Sserunjogi",
+    "email": "fahidsserunjogi010@gmail.com",
+    "gender": "M",
+    "contact": "0704269224",
+    "qualification": "Msc Data Science and Analytics",
+    "salary": "2000000.00"
+  }
+},
+{
+  "model": "lms.instructor",
+  "pk": 11,
+  "fields": {
+    "first_name": "Jamirah",
+    "last_name": "Namuyomba",
+    "email": "jamirahnamu@gmail.com",
+    "gender": "F",
+    "contact": "0769594412",
+    "qualification": "MSc Network Engineering",
+    "salary": "2500000.00"
+  }
+},
+{
+  "model": "lms.instructor",
+  "pk": 12,
+  "fields": {
+    "first_name": "Spencer",
+    "last_name": "Oguzu",
+    "email": "oguzuspencer@gmail.com",
+    "gender": "M",
+    "contact": "0792100382",
+    "qualification": "MSc AI AND ML",
+    "salary": "2500000.00"
+  }
+},
+{
+  "model": "lms.instructor",
+  "pk": 13,
+  "fields": {
+    "first_name": "Christine",
+    "last_name": "Nakku",
+    "email": "Krystinnakku@gmail.com",
+    "gender": "F",
+    "contact": "0736777804",
+    "qualification": "Msc Cybersecurity and digital forensics",
+    "salary": "2800000.00"
+  }
+},
+{
+  "model": "lms.instructor",
+  "pk": 14,
+  "fields": {
+    "first_name": "Tamuzadde",
+    "last_name": "Sudaice",
+    "email": "academicsudaice@gmail.com",
+    "gender": "M",
+    "contact": "0772894532",
+    "qualification": "Msc SE",
+    "salary": "2500000.00"
+  }
+},
+{
+  "model": "lms.course",
+  "pk": 7,
+  "fields": {
+    "Instructor_id": 9,
+    "course_name": "Data Science and Analysis",
+    "Category": "Tech",
+    "Status": "Active",
+    "Amount": "400000.00"
+  }
+},
+{
+  "model": "lms.course",
+  "pk": 9,
+  "fields": {
+    "Instructor_id": 11,
+    "course_name": "Networking Concepts",
+    "Category": "Networking",
+    "Status": "Active",
+    "Amount": "300000.00"
+  }
+},
+{
+  "model": "lms.course",
+  "pk": 10,
+  "fields": {
+    "Instructor_id": 12,
+    "course_name": "AI and ML",
+    "Category": "Programming",
+    "Status": "Active",
+    "Amount": "500000.00"
+  }
+},
+{
+  "model": "lms.course",
+  "pk": 11,
+  "fields": {
+    "Instructor_id": 13,
+    "course_name": "CyberSecurity",
+    "Category": "Tech",
+    "Status": "Active",
+    "Amount": "500000.00"
+  }
+},
+{
+  "model": "lms.course",
+  "pk": 12,
+  "fields": {
+    "Instructor_id": 14,
+    "course_name": "Web Dev",
+    "Category": "programming",
+    "Status": "Active",
+    "Amount": "600000.00"
+  }
+},
+{
+  "model": "lms.enrollment",
+  "pk": 110,
+  "fields": {
+    "Student_id": 23,
+    "Course_id": 7,
+    "Enrollment_date": "2026-11-16",
+    "progress": 100,
+    "status": "Completed"
+  }
+},
+{
+  "model": "lms.enrollment",
+  "pk": 111,
+  "fields": {
+    "Student_id": 25,
+    "Course_id": 9,
+    "Enrollment_date": "2026-11-16",
+    "progress": 0,
+    "status": "Active"
+  }
+},
+{
+  "model": "lms.enrollment",
+  "pk": 113,
+  "fields": {
+    "Student_id": 12,
+    "Course_id": 10,
+    "Enrollment_date": "2026-11-17",
+    "progress": 25,
+    "status": "Active"
+  }
+},
+{
+  "model": "lms.enrollment",
+  "pk": 114,
+  "fields": {
+    "Student_id": 22,
+    "Course_id": 12,
+    "Enrollment_date": "2026-11-17",
+    "progress": 0,
+    "status": "Pending"
+  }
+},
+{
+  "model": "lms.enrollment",
+  "pk": 115,
+  "fields": {
+    "Student_id": 23,
+    "Course_id": 9,
+    "Enrollment_date": "2026-11-17",
+    "progress": 0,
+    "status": "Active"
+  }
+},
+{
+  "model": "lms.payment",
+  "pk": 10,
+  "fields": {
+    "Enrollment_id": 110,
+    "Payment_date": "2026-11-16",
+    "payment_method": "Mobile Money",
+    "Amount": "400000.00",
+    "status": "completed"
+  }
+},
+{
+  "model": "lms.payment",
+  "pk": 11,
+  "fields": {
+    "Enrollment_id": 111,
+    "Payment_date": "2026-11-16",
+    "payment_method": "Card",
+    "Amount": "300000.00",
+    "status": "completed"
+  }
+},
+{
+  "model": "lms.payment",
+  "pk": 12,
+  "fields": {
+    "Enrollment_id": 113,
+    "Payment_date": "2026-11-17",
+    "payment_method": "Mobile Money",
+    "Amount": "500000.00",
+    "status": "completed"
+  }
+},
+{
+  "model": "lms.payment",
+  "pk": 13,
+  "fields": {
+    "Enrollment_id": 114,
+    "Payment_date": "2026-11-17",
+    "payment_method": "Card",
+    "Amount": "600000.00",
+    "status": "pending"
+  }
+},
+{
+  "model": "lms.payment",
+  "pk": 14,
+  "fields": {
+    "Enrollment_id": 115,
+    "Payment_date": "2026-11-17",
+    "payment_method": "Card",
+    "Amount": "300000.00",
+    "status": "completed"
+  }
+},
+{
+  "model": "lms.lesson",
+  "pk": 6,
+  "fields": {
+    "Course_id": 7,
+    "Lesson_title": "Introduction to Data science",
+    "content": ""
+  }
+},
+{
+  "model": "lms.lesson",
+  "pk": 7,
+  "fields": {
+    "Course_id": 7,
+    "Lesson_title": "Introduction to Data science 2",
+    "content": ""
+  }
+},
+{
+  "model": "lms.lesson",
+  "pk": 11,
+  "fields": {
+    "Course_id": 9,
+    "Lesson_title": "Switching Routing and wireless essentials",
+    "content": ""
+  }
+},
+{
+  "model": "lms.lesson",
+  "pk": 12,
+  "fields": {
+    "Course_id": 9,
+    "Lesson_title": "CISCO Packet Tracer",
+    "content": ""
+  }
+},
+{
+  "model": "lms.lesson",
+  "pk": 13,
+  "fields": {
+    "Course_id": 9,
+    "Lesson_title": "Enterprise Networking and Automation",
+    "content": ""
+  }
+},
+{
+  "model": "lms.lesson",
+  "pk": 14,
+  "fields": {
+    "Course_id": 10,
+    "Lesson_title": "Introduction to AI",
+    "content": ""
+  }
+},
+{
+  "model": "lms.lesson",
+  "pk": 15,
+  "fields": {
+    "Course_id": 10,
+    "Lesson_title": "Intro to ML",
+    "content": ""
+  }
+},
+{
+  "model": "lms.lesson",
+  "pk": 16,
+  "fields": {
+    "Course_id": 10,
+    "Lesson_title": "Types of ML",
+    "content": ""
+  }
+},
+{
+  "model": "lms.lesson",
+  "pk": 17,
+  "fields": {
+    "Course_id": 10,
+    "Lesson_title": "Model training and evaluation",
+    "content": ""
+  }
+},
+{
+  "model": "lms.lessonresource",
+  "pk": 1,
+  "fields": {
+    "Lesson_id": 6,
+    "title": "Chapter 1",
+    "url": "https://mrcet.com/downloads/digital_notes/CSE/II%20Year/DS/Introduction%20to%20Datascience%20%5BR20DS501%5D.pdf",
+    "added_at": "2026-11-16T11:49:51.171Z"
+  }
+},
+{
+  "model": "lms.lessonresource",
+  "pk": 2,
+  "fields": {
+    "Lesson_id": 6,
+    "title": "Chapter 2",
+    "url": "https://www.netacad.com/courses/introduction-data-science?courseLang=en-US",
+    "added_at": "2026-11-16T11:54:16.826Z"
+  }
+},
+{
+  "model": "lms.lessonresource",
+  "pk": 3,
+  "fields": {
+    "Lesson_id": 7,
+    "title": "chapter 1",
+    "url": "https://www.netacad.com/courses/introduction-data-science?courseLang=en-US",
+    "added_at": "2026-11-16T11:59:09.915Z"
+  }
+},
+{
+  "model": "lms.lessonresource",
+  "pk": 4,
+  "fields": {
+    "Lesson_id": 14,
+    "title": "Intro To AI notes",
+    "url": "https://www.cet.edu.in/noticefiles/271_AI%20Lect%20Notes.pdf",
+    "added_at": "2026-11-17T05:06:07.804Z"
+  }
+},
+{
+  "model": "lms.lessonresource",
+  "pk": 5,
+  "fields": {
+    "Lesson_id": 15,
+    "title": "Intro to ML notes",
+    "url": "https://www.cet.edu.in/noticefiles/271_AI%20Lect%20Notes.pdf",
+    "added_at": "2026-11-17T05:06:40.542Z"
+  }
+},
+{
+  "model": "lms.lessonresource",
+  "pk": 6,
+  "fields": {
+    "Lesson_id": 16,
+    "title": "ML types",
+    "url": "https://365datascience.com/resources-center/course-notes/intro-to-ai-course-notes/",
+    "added_at": "2026-11-17T05:08:03.711Z"
+  }
+},
+{
+  "model": "lms.lessonresource",
+  "pk": 7,
+  "fields": {
+    "Lesson_id": 17,
+    "title": "Model training notes and pracs",
+    "url": "https://365datascience.com/resources-center/course-notes/intro-to-ai-course-notes/",
+    "added_at": "2026-11-17T05:08:49.717Z"
+  }
+},
+{
+  "model": "lms.lessontracker",
+  "pk": 6,
+  "fields": {
+    "Enrollment_id": 110,
+    "Lesson_id": 6,
+    "status": "Completed"
+  }
+},
+{
+  "model": "lms.lessontracker",
+  "pk": 7,
+  "fields": {
+    "Enrollment_id": 110,
+    "Lesson_id": 7,
+    "status": "Completed"
+  }
+},
+{
+  "model": "lms.lessontracker",
+  "pk": 8,
+  "fields": {
+    "Enrollment_id": 113,
+    "Lesson_id": 14,
+    "status": "Completed"
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$0xFe4HY1lJw2jwpw6dDaON$7MJQVP2w1TQKdzR7p7843tcgwyxGoZGOuan2aSqHY8Y=",
+    "last_login": "2026-11-17T12:50:13.532Z",
+    "is_superuser": true,
+    "username": "edgar",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-11-11T15:21:47.732Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$VSel2BqzUd7WipKxJ7zOPZ$3q6kkWBaB57/ELasYW23XZFHIZ5M0g9Fx+vRty+uxx8=",
+    "last_login": "2026-11-17T05:23:52.622Z",
+    "is_superuser": false,
+    "username": "Themba",
+    "first_name": "Themba",
+    "last_name": "Mokoena",
+    "email": "mokoenazwane@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-12T20:44:27.604Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$6FVurhn84sjREd2ug84qaa$C4CWP4thGHcf97N/oQmGdmwMViJ0s51yPVq1aq9Ik34=",
+    "last_login": "2026-11-17T08:21:12.849Z",
+    "is_superuser": false,
+    "username": "Nash",
+    "first_name": "Nasulu",
+    "last_name": "Famba",
+    "email": "nasulu@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-13T10:23:57.416Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$ICvsBwQmRdkcVzCJArovPL$CTpgdWo27m++OmW8XzB1Ucklpe9iMjmUH+TIBJmSVVQ=",
+    "last_login": "2026-11-16T09:26:31.925Z",
+    "is_superuser": false,
+    "username": "Musa",
+    "first_name": "Musa",
+    "last_name": "Lubega",
+    "email": "musa@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-16T09:26:22.848Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$keiG2dN37ZrHIgqUYGmBvy$t0z7d0h9hTMPxtHP7KWukcLoVbuz5TrlPqIix5m57bs=",
+    "last_login": "2026-11-17T08:19:18.407Z",
+    "is_superuser": false,
+    "username": "fahid",
+    "first_name": "Fahid",
+    "last_name": "Sserunjogi",
+    "email": "fahidsserunjogi010@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-16T10:41:06.185Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$rmue3pYxyLpUwVL6L5UVkL$IEuIGfaH654QNpWPqtcJLbpA8EgOnhauwAqxA8fQJTk=",
+    "last_login": "2026-11-17T08:29:51.725Z",
+    "is_superuser": false,
+    "username": "jamirah",
+    "first_name": "Jamirah",
+    "last_name": "Namuyomba",
+    "email": "jamirahnamu@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-16T13:52:35.480Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$nA291mZ0OK1fYDl5d5ijdQ$UFGUXL1msVPmnZpeGFpdFiEEPMuh2Z8F40/LNEGoM3k=",
+    "last_login": "2026-11-16T14:11:02.408Z",
+    "is_superuser": false,
+    "username": "devine",
+    "first_name": "Devine",
+    "last_name": "Kamaliza",
+    "email": "devinekamaliza@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-16T14:09:15.674Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$FNHjbZLmFVxyvRjhq6lDCm$PQGEMJmSYDZOlaYTkVLX7EiL+LKchokvhqIzvgLDKd0=",
+    "last_login": "2026-11-17T05:03:37.640Z",
+    "is_superuser": false,
+    "username": "spencer",
+    "first_name": "Spencer",
+    "last_name": "Oguzu",
+    "email": "oguzuspencer@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-17T04:36:18.295Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$7Hhy6M3SDDxZASuQD15zdj$N9qM2u5xOqOBZciTynA+Dr2WA6FFWnN4JLYYaZ6EdCs=",
+    "last_login": "2026-11-17T07:46:57.555Z",
+    "is_superuser": false,
+    "username": "imelda",
+    "first_name": "Patricia",
+    "last_name": "Nakalega",
+    "email": "elysepatricia@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-17T04:58:36.156Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$7kmjBpUsntjqvurxm4IY0T$18J4kHjjaSYwhPGiPV8WQSUEr2gqWjtVHzxlpomg1l4=",
+    "last_login": "2026-11-17T12:50:47.136Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-11-17T08:45:27.819Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
